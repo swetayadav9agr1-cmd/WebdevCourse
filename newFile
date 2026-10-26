@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova — Single Page Website</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;line-height:1.6;color:#172033;background:#f7f9fc}
+    nav{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e7eaf0;padding:16px 7%;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:24px;font-weight:800;color:#5b4bdb}
+    nav a{margin-left:22px;text-decoration:none;color:#394150;font-weight:600}
+    nav a:hover{color:#5b4bdb}
+    .hero{min-height:78vh;padding:90px 7%;display:flex;align-items:center;justify-content:space-between;gap:50px;background:linear-gradient(135deg,#f2efff,#fff)}
+    .hero-text{max-width:620px}
+    .tag{display:inline-block;background:#e7e2ff;color:#4d3bc2;padding:7px 14px;border-radius:20px;font-weight:700;font-size:14px;margin-bottom:18px}
+    h1{font-size:clamp(42px,6vw,72px);line-height:1.05;margin-bottom:20px}
+    .hero p{font-size:19px;color:#596273;margin-bottom:28px}
+    .btn{display:inline-block;padding:13px 22px;border-radius:10px;text-decoration:none;font-weight:700;margin-right:10px}
+    .primary{background:#5b4bdb;color:#fff}
+    .secondary{border:1px solid #cfd4df;color:#303849;background:#fff}
+    .hero-card{width:330px;padding:30px;border-radius:24px;background:#fff;box-shadow:0 20px 60px #5b4bdb25;text-align:center}
+    .hero-card .icon{font-size:72px;margin-bottom:10px}
+    section{padding:75px 7%}
+    .section-title{text-align:center;margin-bottom:42px}
+    .section-title h2{font-size:38px;margin-bottom:8px}
+    .section-title p{color:#687386}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:#fff;padding:28px;border:1px solid #e6e9ef;border-radius:18px}
+    .card h3{margin:12px 0 8px}
+    .card p{color:#687386}
+    .emoji{font-size:35px}
+    .about{background:#fff}
+    .about-box{max-width:850px;margin:auto;text-align:center}
+    .contact{text-align:center}
+    form{max-width:560px;margin:25px auto 0;display:grid;gap:13px}
+    input,textarea{width:100%;padding:14px;border:1px solid #d9dde6;border-radius:10px;font:inherit}
+    textarea{min-height:130px;resize:vertical}
+    button{border:0;cursor:pointer;padding:14px;border-radius:10px;background:#5b4bdb;color:#fff;font-weight:700;font-size:16px}
+    #message{margin-top:12px;color:#4d3bc2;font-weight:700}
+    footer{text-align:center;padding:25px;background:#172033;color:#fff}
+    @media(max-width:750px){
+      nav{padding:14px 5%;flex-direction:column;gap:8px}
+      nav a{margin:0 7px;font-size:14px}
+      .hero{padding:65px 5%;flex-direction:column;text-align:center}
+      .hero-card{width:min(330px,100%)}
+      section{padding:60px 5%}
+      .cards{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">NOVA</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <span class="tag">SIMPLE • MODERN • RESPONSIVE</span>
+      <h1>Build something people love.</h1>
+      <p>A clean single-page website template for a college project, portfolio, startup, or personal brand.</p>
+      <a class="btn primary" href="#features">Explore</a>
+      <a class="btn secondary" href="#contact">Contact Us</a>
+    </div>
+    <div class="hero-card">
+      <div class="icon">🚀</div>
+      <h2>Ready to launch?</h2>
+      <p>Everything you need is inside this one HTML file.</p>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="section-title">
+      <h2>Features</h2>
+      <p>Designed to be simple and easy to customize.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="emoji">⚡</div>
+        <h3>Fast</h3>
+        <p>Lightweight HTML and CSS with no external libraries required.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">📱</div>
+        <h3>Responsive</h3>
+        <p>Works smoothly on desktop, tablet, and mobile screens.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🎨</div>
+        <h3>Modern Design</h3>
+        <p>Clean cards, buttons, spacing, and a professional layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-box">
+      <div class="section-title">
+        <h2>About Nova</h2>
+        <p>One page. One file. Easy to edit.</p>
+      </div>
+      <p>Nova is a beginner-friendly website template made with HTML, CSS, and a small amount of JavaScript. Replace the text, colors, emojis, and sections with your own content to turn it into your project website.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-title">
+      <h2>Get in Touch</h2>
+      <p>Send us a message.</p>
+    </div>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Your name" required>
+      <input type="email" id="email" placeholder="Your email" required>
+      <textarea id="text" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+      <div id="message"></div>
+    </form>
+  </section>
+
+  <footer>
+    © 2026 Nova. All rights reserved.
+  </footer>
+
+  <script>
+    function sendMessage(event){
+      event.preventDefault();
+      document.getElementById("message").textContent =
+        "Thank you! Your message has been received.";
+      event.target.reset();
+    }
+  </script>
+</body>
+</html>
